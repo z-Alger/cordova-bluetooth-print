@@ -115,5 +115,5 @@ BTPrinter.printPOSCommand(function(data){
     console.log("Error");
     console.log(err)
 }, "0C")
-//OC is a POS command for page feed
+//OC is a POS command for page feed ...
 ```
