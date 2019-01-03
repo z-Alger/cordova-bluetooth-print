@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6e864e8-9e69-489c-b4ec-f3295158c7d7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugin.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/android/cordova-bluetooth-prints.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/cordova-bluetooth-prints.js" afterPath="" />
-    </list>
+    <list default="true" id="a6e864e8-9e69-489c-b4ec-f3295158c7d7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -130,7 +123,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2742000" />
+    <option name="totallyTimeSpent" value="2950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1379" height="733" extended-state="0" />
