@@ -1,19 +1,11 @@
 {
-  "name": "cordova-bluetooth-print",
+  "name": "cordova-bluetooth-prints",
   "version": "1.0.0",
-  "description": "\u001b[A\u001b[Bcordova-bluetooth-prints",
+  "description": "cordova-bluetooth-prints",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/z-Alger/cordova-bluetooth-print.git"
-  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/z-Alger/cordova-bluetooth-print/issues"
-  },
-  "homepage": "https://github.com/z-Alger/cordova-bluetooth-print#readme"
+  "license": "ISC"
 }
