@@ -183,7 +183,7 @@ public class BluetoothPrinter extends CordovaPlugin {
 		return false;
 	}
 
-	//Ô­³§´úÂë¿ªÊ¼
+	//Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªÊ¼
 
     //SDK variable
 	private POSBluetoothAPI mBluetoothManager; 
@@ -210,7 +210,7 @@ public class BluetoothPrinter extends CordovaPlugin {
 	
 	public static int port_type = 0;
 	
-	//Ô­³§´úÂë½áÊø
+	//Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	// Tries to open a connection to the bluetooth printer device
 	boolean connectBT(CallbackContext callbackContext) throws IOException {
@@ -223,7 +223,7 @@ public class BluetoothPrinter extends CordovaPlugin {
 //			mmInputStream = mmSocket.getInputStream();
 //			beginListenForData();
 			
-			//Ô­³§´úÂë¿ªÊ¼
+			//Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªÊ¼
 			
 			mBluetoothManager = POSBluetoothAPI.getInstance(this.cordova.getActivity());
 			interface_blue = POSBluetoothAPI.getInstance(this.cordova.getActivity());
@@ -236,7 +236,7 @@ public class BluetoothPrinter extends CordovaPlugin {
 					
 				}	
 		
-			//Ô­³§´úÂë½áÊø
+			//Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
 			//Log.d(LOG_TAG, "Bluetooth Opened: " + mmDevice.getName());
 			callbackContext.success("Bluetooth Opened: " + mmDevice.getName());
@@ -351,7 +351,7 @@ public class BluetoothPrinter extends CordovaPlugin {
         	callbackContext.success("Data Sent");
             // tell the user data were sent
             //Log.d(LOG_TAG, "Data Sent");
-            callbackContext.success("Data Sent");
+            callbackContext.success("Data Sent>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>test");
             return true;
 
 
