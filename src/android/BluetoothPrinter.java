@@ -309,7 +309,7 @@ public class BluetoothPrinter extends CordovaPlugin {
 
 			// tell the user data were sent
 			//Log.d(LOG_TAG, "Data Sent");
-			callbackContext.success("Data Sent");
+			callbackContext.success("Data Sent>>>>>>>>>>>>>>>>>>>>>>>>>>>test");
 			return true;
 
 		} catch (Exception e) {
@@ -348,10 +348,10 @@ public class BluetoothPrinter extends CordovaPlugin {
 //            mmOutputStream.write(bt);
         	TestPrintInfo testprint = new TestPrintInfo();
         	testprint.TestPrintBitmap(BlueActivity.pos_blue, BlueActivity.printMode, bitmap_name, hd_type);
-        	callbackContext.success("Data Sent");
+        	callbackContext.success("Data Sent>>>>>>>>>>>>>>>>>>>>>>>>>>>test");
             // tell the user data were sent
             //Log.d(LOG_TAG, "Data Sent");
-            callbackContext.success("Data Sent>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>test");
+            callbackContext.success("Data Sent>>>>>>>>>>>>>>>>>>>>>>>>>>>test");
             return true;
 
 
@@ -374,7 +374,7 @@ public class BluetoothPrinter extends CordovaPlugin {
 
             // tell the user data were sent
 			Log.d(LOG_TAG, "Data Sent");
-            callbackContext.success("Data Sent");
+            callbackContext.success("Data Sent>>>>>>>>>>>>>>>>>>>>>>>>>>>test");
             return true;
         } catch (Exception e) {
             String errMsg = e.getMessage();
