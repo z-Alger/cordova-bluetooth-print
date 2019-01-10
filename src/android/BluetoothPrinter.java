@@ -19,7 +19,6 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -31,7 +30,6 @@ import android.graphics.Paint;
 import android.graphics.Bitmap.Config;
 import android.util.Xml.Encoding;
 import android.util.Base64;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,60 +48,9 @@ public class BluetoothPrinter extends CordovaPlugin {
     int counter;
     volatile boolean stopWorker;
     Bitmap bitmap;
-    public static BluetoothService mService = null;
-    
+
     public BluetoothPrinter() {
     }
- // Intent request codes
-    private static final int REQUEST_CONNECT_DEVICE = 1;
-    private static final int REQUEST_ENABLE_BT = 2;
-    
-    // Message types sent from the BluetoothService Handler
-    public static final int MESSAGE_STATE_CHANGE = 1;
-    public static final int MESSAGE_READ = 2;
-    public static final int MESSAGE_WRITE = 3;
-    public static final int MESSAGE_DEVICE_NAME = 4;
-    public static final int MESSAGE_TOAST = 5;
-    
- // The Handler that gets information back from the BluetoothService
-    private final Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case MESSAGE_STATE_CHANGE:
-                switch (msg.arg1) {
-                case BluetoothService.STATE_CONNECTED:
-                	
-                    break;
-                case BluetoothService.STATE_CONNECTING:
-                	
-                    break;
-                case BluetoothService.STATE_LISTEN:
-                case BluetoothService.STATE_NONE:
-                
-                    break;
-                }
-                break;
-            case MESSAGE_WRITE:
-                //byte[] writeBuf = (byte[]) msg.obj;
-                // construct a string from the buffer
-                //String writeMessage = new String(writeBuf);
-                break;
-            case MESSAGE_READ:
-                //byte[] readBuf = (byte[]) msg.obj;
-                // construct a string from the valid bytes in the buffer
-                //String readMessage = new String(readBuf, 0, msg.arg1);
-                break;
-            case MESSAGE_DEVICE_NAME:
-                // save the connected device's name
-             
-                break;
-            case MESSAGE_TOAST:
-              
-                break;
-            }
-        }
-    };
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -111,14 +58,6 @@ public class BluetoothPrinter extends CordovaPlugin {
             listBT(callbackContext);
             return true;
         } else if (action.equals("connect")) {
-        	 if (!mBluetoothAdapter.isEnabled()) {
-             	//打开蓝牙
-                 //Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                 //startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-             }
-             if (mService==null) {
-             	mService = new BluetoothService(mHandler);
-             }
             String name = args.getString(0);
             if (findBT(callbackContext, name)) {
                 try {
@@ -228,7 +167,6 @@ public class BluetoothPrinter extends CordovaPlugin {
                 for (BluetoothDevice device : pairedDevices) {
                     if (device.getName().equalsIgnoreCase(name)) {
                         mmDevice = device;
-                        mService.connect(device);
                         return true;
                     }
                 }
@@ -353,16 +291,12 @@ public class BluetoothPrinter extends CordovaPlugin {
             //image = resizeImage(image, 48 * 8, mHeight);//348
             image = resizeImage(image, 500, mHeight);
 
-            byte[] draw2PxPoint = decodeBitmap(image);
+            byte[] bt = decodeBitmap(image);
 
-            //mmOutputStream.write(bt);
+            mmOutputStream.write(bt);
             // tell the user data were sent
             //Log.d(LOG_TAG, "Data Sent");
-            //callbackContext.success("Data Sent");
-        	mService.write(draw2PxPoint);
-    		// 发�?�结束指�?
-    		byte[] end = { 0x1d, 0x4c, 0x1f, 0x00 };
-    		mService.write(end);
+            callbackContext.success("Data Sent");
             return true;
 
         } catch (Exception e) {
