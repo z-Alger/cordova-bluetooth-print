@@ -32,8 +32,8 @@
 
       <config-file target="AndroidManifest.xml" parent="/*">
          <uses-permission android:name="android.permission.BLUETOOTH" />
+         <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
       </config-file>
-
       <source-file src="src/android/BluetoothPrinter.java" target-dir="src/com/ru/cordova/printer/bluetooth" />
 	  <source-file src="src/android/BluetoothService.java" target-dir="src/com/ru/cordova/printer/bluetooth"/>
 
