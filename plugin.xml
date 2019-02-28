@@ -1,43 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-bluetooth-printer"
-        version="0.0.1-dev">
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="printer" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
 
-   <name>BluetoothPrinter</name>
-   <description>A cordova plugin for bluetooth printer for android platform, which support text printing and POS printing.</description>
-
-   <repo>https://github.com/srehanuddin/Cordova-Plugin-Bluetooth-Printer</repo>
-   <license>Apache 2.0</license>
-   <keywords>cordova, bluetooth, printer, pos, text, barcode, image</keywords>
-
-   <author>Syed Rehanuddin</author>
-
-   <!-- cordova -->
-   <engines>
-      <engine name="cordova" version=">=3.0.0" />
-   </engines>
-
-   <js-module src="www/BluetoothPrinter.js" name="BluetoothPrinter">
-      <clobbers target="BTPrinter" />
-   </js-module>
-
-   <!-- android -->
-   <platform name="android">
-      <config-file target="res/xml/config.xml" parent="/*">
-         <feature name="BluetoothPrinter">
-            <param name="android-package" value="com.ru.cordova.printer.bluetooth.BluetoothPrinter"/>
-         </feature>
-      </config-file>
-
-      <config-file target="AndroidManifest.xml" parent="/*">
-         <uses-permission android:name="android.permission.BLUETOOTH" />
-         <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-      </config-file>
-      <source-file src="src/android/BluetoothPrinter.java" target-dir="src/com/ru/cordova/printer/bluetooth" />
-	  <source-file src="src/android/BluetoothService.java" target-dir="src/com/ru/cordova/printer/bluetooth"/>
-
-
-
-   </platform>
+    <name>printer</name>
+    <js-module name="PrinterPlugin" src="www/printer.js">
+        <clobbers target="PrinterPlugin" />
+    </js-module>
+    <!--添加安卓平台-->
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-feature android:name="android.hardware.bluetooth_le" />
+        </config-file>
+        <config-file target="res/xml/config.xml" parent="/*"> 
+                     <!--js调用的对象名-->
+            <feature name="PrinterPlugin">
+                            <!-- value=java类名全路径-->
+                <param name="android-package" value="com.wxz.PrinterPlugin"/>
+            </feature> 
+        </config-file> 
+              <!-- src:java源文件的路径， target-dir:插件安装好后，源文件的位置，要和上面的包名对应 -->
+        <source-file src="src/android/PrinterPlugin.java" target-dir="src/com/wxz" />   
+        <source-file src="src/android/PrintUtils.java" target-dir="src/com/wxz/PrintUtils" />
+        <source-file src="src/android/POSSDKForAndroid.jar" target-dir="libs" />          
+    </platform>
 </plugin>
